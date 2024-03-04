@@ -29,7 +29,8 @@
             </div>
             <footer class="main-footer">
                 <div class="footer-left">
-                    Copyright &copy; {{ date('Y') }} <div class="bullet"></div> Design By <a href="">Muhamad
+                    Copyright &copy; {{ date('Y') }}
+                    <div class="bullet"></div> Design By <a href="">Muhamad
                         Nauval Azhar</a>
                 </div>
                 <div class="footer-right">
@@ -47,10 +48,13 @@
     <script src="{{ asset('admin/assets/js/stisla.js') }}"></script>
 
     <!-- JS Libraies -->
+    <script src="{{ asset('admin/assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }}"></script>
     <script src="{{ asset('admin/assets/modules/summernote/summernote-bs4.js') }}"></script>
 
     <!-- Template JS File -->
     <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
+
+    @stack('scripts')
 </body>
 
 </html>
