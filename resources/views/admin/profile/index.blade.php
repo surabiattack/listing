@@ -22,95 +22,99 @@
                         <h4>Update Profile</h4>
                     </div>
                     <div class="card-body">
-                        <form action="">
+                        <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Avatar</label>
-                                        <div id="image-preview" class="image-preview">
+                                        <div id="image-preview" class="image-preview avatar-preview">
                                             <label for="image-upload" id="image-label">Choose File</label>
                                             <input type="file" name="avatar" id="image-upload" />
+                                            <input type="hidden" name="old_avatar" value="{{ $user->avatar }}" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Banner</label>
-                                        <div id="image-preview-2" class="image-preview">
+                                        <div id="image-preview-2" class="image-preview banner-preview">
                                             <label for="image-upload-2" id="image-label-2">Choose File</label>
                                             <input type="file" name="banner" id="image-upload-2" />
+                                            <input type="hidden" name="old_banner" value="{{ $user->banner }}" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Name<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="name" required />
+                                        <input type="text" class="form-control" name="name" value="{{ $user->name }}" required />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Email<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="email" required />
+                                        <input type="text" class="form-control" name="email" value="{{ $user->email }}" required />
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Phone<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="phone" required />
+                                        <input type="text" class="form-control" name="phone" value="{{ $user->phone }}" required />
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Address<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="address" required />
+                                        <input type="text" class="form-control" name="address" value="{{ $user->address }}" required />
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>About<span class="text-danger">*</span></label>
-                                        <textarea name="about" class="form-control" required></textarea>
+                                        <textarea name="about" class="form-control" required>{!! $user->about !!}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Website</label>
-                                        <input type="text" class="form-control" name="website" />
+                                        <input type="text" class="form-control" name="website" value="{{ $user->website }}" />
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Facebook</label>
-                                        <input type="text" class="form-control" name="fb_link" />
+                                        <input type="text" class="form-control" name="fb_link" value="{{ $user->fb_link }}" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>X</label>
-                                        <input type="text" class="form-control" name="x_link" />
+                                        <input type="text" class="form-control" name="x_link" value="{{ $user->x_link }}" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Linkedin</label>
-                                        <input type="text" class="form-control" name="in_link" />
+                                        <input type="text" class="form-control" name="in_link" value="{{ $user->in_link }}" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Whatsapp</label>
-                                        <input type="text" class="form-control" name="wa_link" />
+                                        <input type="text" class="form-control" name="wa_link" value="{{ $user->wa_link }}" />
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Instagram</label>
-                                        <input type="text" class="form-control" name="instra_link" />
+                                        <input type="text" class="form-control" name="instra_link" value="{{ $user->instra_link }}" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -131,6 +135,18 @@
 
 @push('scripts')
 <script>
+    $(document).ready(function() {
+        $('.avatar-preview').css({
+            'background-image': 'url({{ asset($user->avatar)}})',
+            'background-size': 'cover',
+            'background-position': 'center center'
+        });
+        $('.banner-preview').css({
+            'background-image': 'url({{ asset($user->banner)}})',
+            'background-size': 'cover',
+            'background-position': 'center center'
+        });
+    });
     $.uploadPreview({
         input_field: "#image-upload", // Default: .image-upload
         preview_box: "#image-preview", // Default: .image-preview

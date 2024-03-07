@@ -17,4 +17,5 @@ Route::group([
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index'); // admin.dashboard.index
     /** Profile Route **/
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
