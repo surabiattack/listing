@@ -57,8 +57,8 @@
     <!-- Template JS File -->
     <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
     <script>
-        @if ($errors->any())
-            @foreach ($errors->all() as $error)
+        @if($errors->any())
+            @foreach($errors->all() as $error)
                 toastr.error(" {{ $error }}")
             @endforeach
         @endif

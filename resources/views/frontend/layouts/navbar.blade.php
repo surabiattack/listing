@@ -13,7 +13,7 @@
             </div>
             <div class="col-xl-6 col-md-5">
                 <div class="wsus__topbar_right">
-                    <a href="sign_in.html"><i class="fas fa-user"></i> Login</a>
+                    <a href="{{ route('login') }}"><i class="fas fa-user"></i> Login</a>
                 </div>
             </div>
         </div>
@@ -32,8 +32,7 @@
         <a class="navbar-brand" href="index.html">
             <img src="images/logo.png" alt="DB.Card">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="far fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
