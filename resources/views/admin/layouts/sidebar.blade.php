@@ -197,6 +197,10 @@
                     <li class="{{ setSidebarActivate(['admin.category.index']) }}"><a class="nav-link"
                             href="{{ route('admin.category.index') }}">Categories</a></li>
                 </ul>
+                <ul class="dropdown-menu">
+                    <li class="{{ setSidebarActivate(['admin.location.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.location.index') }}">Location</a></li>
+                </ul>
             </li>
             <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank
                         Page</span></a></li>

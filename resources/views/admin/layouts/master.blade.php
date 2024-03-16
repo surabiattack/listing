@@ -105,6 +105,12 @@
                                 });
 
                                 window.location.reload();
+                            } else if (response.status === 'error') {
+                                Swal.fire({
+                                    title: "Something wen't wrong",
+                                    text: response.message,
+                                    icon: "error"
+                                });
                             }
                         },
                         error: function(xhr, status, error) {
