@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\AmenityController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
@@ -32,4 +33,7 @@ Route::group([
 
     /** Location routes */
     Route::resource('/location', LocationController::class);
+
+    /** Amenity routes */
+    Route::resource('/amenity', AmenityController::class);
 });
